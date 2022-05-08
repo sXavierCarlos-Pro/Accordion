@@ -1,0 +1,62 @@
+.accordion{ /*réglages de l'accordeon*/
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 900px;
+    height: 400px;
+    margin: 100px auto;
+}
+/* regarder les dif possibilité sur mdn nth : odd even nth permet de classer en énième*/
+.accordion .image:nth-child(1){
+    background: center/cover url(./assets/img/1.jpg);
+}
+.accordion .image:nth-child(2){
+    background: center/cover url(./assets/img/2.jpg);
+}
+.accordion .image:nth-child(3){
+    background: center/cover url(./assets/img/3.jpg);
+}
+.accordion .image:nth-child(4){
+    background: center/cover url(./assets/img/4.jpg);
+}
+.accordion .image:nth-child(5){
+    background: center/cover url(./assets/img/5.jpg);
+}
+
+.image{ /*réglages de l'image*/
+    min-width: 80px;
+    border-radius: 10px;
+    filter: grayscale(80%);
+    overflow: hidden;
+    transition: 1s;
+}
+/*Positionnement texte hors survol*/
+.txt_container{
+    position: relative;
+    color: white;
+    height: 100%;
+    padding: 30px;
+    transform: translateY(100%);
+    transition: 0.8s ease-in-out;
+    /* ease permet transition plus smooth */
+    opacity: 0;
+    background: linear-gradient(0deg; rgba(0,0,0,0.4)10%);
+}
+
+    /* pour positionner le texte soit => df direction: column justify alig end, soit => position absolute; */
+
+.txt_container .txt{
+    position: absolute;
+    bottom: 80px;
+}
+
+.image:hover{ /*aggrandissement de la fenêtre image*/
+    flex-grow: 1;
+    filter: none;
+}
+
+.image:hover .txt_container{ /*texte qui apparaît au survol*/
+    transform: translateY(0);
+    opacity: 1;
+}
+
